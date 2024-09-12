@@ -1,0 +1,65 @@
+﻿@model file_project.Models.RepresentativeModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="hero-section">
+    <div class="hero-content">
+        <h1 class="display-4">GMEDICA</h1>
+        <p class="lead">Instrumental Cirúrgico</p>
+        <div class="hero-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+</div>
+
+<!-- Outras seções do seu HTML -->
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 p-0">
+            <div class="banner-image" style="background-image: url('/Images/representative-banner.jpg');">
+                <div class="banner-text">
+                    <h1>Seja um Representante<br>GMedica</h1>
+                    <a href="#form" class="btn btn-light">Saiba Mais</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 bg-dark text-white p-5">
+            <h2>Fique por dentro de Nossos produtos</h2>
+            @using (Html.BeginForm("Submit", "Home", FormMethod.Post, new { id = "form" }))
+            {
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        @Html.TextBoxFor(m => m.Nome, new { @class = "form-control", placeholder = "Nome" })
+                    </div>
+                    <div class="form-group col-md-6">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Insira o seu email aqui" })
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        @Html.TextBoxFor(m => m.Telefone, new { @class = "form-control", placeholder = "Telefone" })
+                    </div>
+                    <div class="form-group col-md-6">
+                        @Html.TextBoxFor(m => m.Empresa, new { @class = "form-control", placeholder = "Empresa" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Selecione uma opção:</label>
+                    @Html.DropDownListFor(m => m.TipoInstituicao, new SelectList(new List<SelectListItem>
+                {
+                new SelectListItem { Text = "Opção 1", Value = "Opção 1" },
+                new SelectListItem { Text = "Opção 2", Value = "Opção 2" }
+                }), new { @class = "form-control" })
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            }
+        </div>
+    </div>
+</div>
