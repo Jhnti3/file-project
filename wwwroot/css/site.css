@@ -3,14 +3,26 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Estilos do cabeçalho */
+/* Estilos do cabeçalho 
 .navbar {
     background-color: #1a2a3a !important;
+}*/
+
+/* Atualize a cor da navbar */
+.navbar {
+    background-color: #265C8F !important;
 }
+
 
 .navbar-brand {
     font-weight: bold;
 }
+
+    /* Ajuste o tamanho da logo */
+.navbar-brand img {
+    height: 40px; /* Defina a altura desejada */
+    width: auto; /* Mantenha a proporção da imagem */
+    }
 
 /* Estilos do menu */
 .navbar-nav {
@@ -19,9 +31,16 @@ body {
     width: 100%;
 }
 
+/* Ajuste o tamanho da logo */
+.logo {
+    height: 40px; /* Defina a altura desejada */
+    width: auto; /* Mantenha a proporção da imagem */
+}
+
+
 /* Estilos da seção hero */
 .hero-section {
-    background-image: url('/images/doctors-background.jpg');
+    background-image: url('../images/background.jpg');
     background-size: cover;
     background-position: center;
     height: 600px;
@@ -32,6 +51,28 @@ body {
     color: white;
     position: relative;
 }
+
+.hero-dots .dot {
+    height: 15px;
+    width: 15px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.hero-dots .dot.active {
+    background-color: #717171;
+}
+
+.hero-section {
+    background-size: cover;
+    background-position: center;
+    height: 500px; /* ajuste conforme necessário */
+}
+
+
 
 .hero-content {
     z-index: 2;
@@ -215,3 +256,30 @@ body {
         max-width: 800px;
         margin: 0 auto;
     }
+
+/* Estilos da imagem de fundo */
+.banner-image {
+    background-size: cover; /* Faz com que a imagem cubra todo o container */
+    background-position: center; /* Centraliza a imagem */
+    height: 400px; /* Ajuste a altura conforme necessário */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+}
+
+.banner-text {
+    text-align: center;
+    z-index: 1; /* Garante que o texto esteja acima da imagem */
+}
+
+    .banner-text h1 {
+        font-size: 2.5rem; /* Ajuste o tamanho da fonte conforme necessário */
+        margin-bottom: 1rem;
+    }
+
+    .banner-text .btn {
+        margin-top: 1rem;
+    }
+

@@ -1,13 +1,15 @@
 ﻿@model file_project.Models.RepresentativeModel
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = Localizer["Home Page"];
 }
 
-<div class="hero-section">
+@* <div class="hero-section">
     <div class="hero-content">
-        <h1 class="display-4">GMEDICA</h1>
-        <p class="lead">Instrumental Cirúrgico</p>
+        <h1 class="display-4">@Localizer["GMEDICA"]</h1>
+        <p class="lead">@Localizer["Instrumental Cirúrgico"]</p>
         <div class="hero-dots">
             <span class="dot active"></span>
             <span class="dot"></span>
@@ -16,49 +18,62 @@
             <span class="dot"></span>
         </div>
     </div>
+</div> *@
+
+<div class="hero-section">
+    <div class="hero-content">
+        <h1 class="display-4" id="hero-title">@Localizer["GMEDICA"]</h1>
+        <p class="lead" id="hero-text">@Localizer["Instrumental Cirúrgico"]</p>
+        <div class="hero-dots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+            <span class="dot" data-index="3"></span>
+            <span class="dot" data-index="4"></span>
+        </div>
+    </div>
 </div>
 
-<!-- Outras seções do seu HTML -->
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6 p-0">
-            <div class="banner-image" style="background-image: url('/Images/representative-banner.jpg');">
+            <div class="banner-image" style="background-image: url('../../wwwroot/css/background.jpg');">
                 <div class="banner-text">
-                    <h1>Seja um Representante<br>GMedica</h1>
-                    <a href="#form" class="btn btn-light">Saiba Mais</a>
+                    <h1>@Localizer["SejaRepresentante"]</h1>
+                    <a href="#form" class="btn btn-light">@Localizer["SaibaMais"]</a>
                 </div>
             </div>
         </div>
         <div class="col-md-6 bg-dark text-white p-5">
-            <h2>Fique por dentro de Nossos produtos</h2>
+            <h2>@Localizer["FiquePorDentro"]</h2>
             @using (Html.BeginForm("Submit", "Home", FormMethod.Post, new { id = "form" }))
             {
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        @Html.TextBoxFor(m => m.Nome, new { @class = "form-control", placeholder = "Nome" })
+                        @Html.TextBoxFor(m => m.Nome, new { @class = "form-control", placeholder = Localizer["Nome"] })
                     </div>
                     <div class="form-group col-md-6">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Insira o seu email aqui" })
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = Localizer["EmailPlaceholder"] })
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        @Html.TextBoxFor(m => m.Telefone, new { @class = "form-control", placeholder = "Telefone" })
+                        @Html.TextBoxFor(m => m.Telefone, new { @class = "form-control", placeholder = Localizer["Telefone"] })
                     </div>
                     <div class="form-group col-md-6">
-                        @Html.TextBoxFor(m => m.Empresa, new { @class = "form-control", placeholder = "Empresa" })
+                        @Html.TextBoxFor(m => m.Empresa, new { @class = "form-control", placeholder = Localizer["Empresa"] })
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Selecione uma opção:</label>
+                    <label>@Localizer["SelecioneOpcao"]</label>
                     @Html.DropDownListFor(m => m.TipoInstituicao, new SelectList(new List<SelectListItem>
                 {
-                new SelectListItem { Text = "Opção 1", Value = "Opção 1" },
-                new SelectListItem { Text = "Opção 2", Value = "Opção 2" }
+                new SelectListItem { Text = Localizer["Opcao1"].Value, Value = "Opção 1" },
+                new SelectListItem { Text = Localizer["Opcao2"].Value, Value = "Opção 2" }
                 }), new { @class = "form-control" })
                 </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="submit" class="btn btn-primary">@Localizer["Enviar"]</button>
             }
         </div>
     </div>
