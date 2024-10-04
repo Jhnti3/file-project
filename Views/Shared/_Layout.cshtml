@@ -5,21 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - GMedica</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    @* <link rel="stylesheet" href="~/css/site.css" /> *@
+    <link rel="stylesheet" href="~/css/Site.css?v=@DateTime.Now.Ticks" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- CSS para rolagem suave -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3" style="background-color: #265C8F;">
             <div class="container">
+                <!-- Logo -->
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                     <img src="~/images/Logo.png" alt="GMedica Logo" class="logo">
                 </a>
 
+                <!-- Botão para dispositivos móveis -->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
+                <!-- Menu de navegação -->
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-center">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
@@ -29,7 +41,7 @@
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Produtos">Produtos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Institucional">Quem Somos</a>
+                            <a class="nav-link text-light" href="#sobre-nos">Quem Somos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Calendario">Calendário</a>
@@ -40,20 +52,105 @@
                     </ul>
                 </div>
 
+                <!-- Seletor de idioma -->
                 <div class="language-selector">
                     <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "pt-BR", returnUrl = Context.Request.Path })" class="btn btn-outline-light btn-sm">
-                        <img src="/images/BRA.png" alt="" style="width: 20px; margin-right: 5px;">
+                        <img src="/images/BRA.png" alt="Português" style="width: 20px; margin-right: 5px;">
                         PT
                     </a>
                     <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "en-US", returnUrl = Context.Request.Path })" class="btn btn-outline-light btn-sm">
-                        <img src="/images/USA.png" alt="" style="width: 20px; margin-right: 5px;">
+                        <img src="/images/USA.png" alt="English" style="width: 20px; margin-right: 5px;">
                         EN
                     </a>
                 </div>
-
             </div>
         </nav>
     </header>
+
+
+    <!-- Hero Section (BANNER) -->
+    <div class="hero-section" style="background-image: url('/images/background.jpg');">
+        <div class="hero-content">
+            <h1 class="display-4" id="hero-title">GMEDICA</h1>
+            <p class="lead" id="hero-text">Instrumental Cirúrgico</p>
+            <div class="hero-dots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+                <span class="dot" data-index="3"></span>
+                <span class="dot" data-index="4"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section (Menus QUADRADOS AZUIS) -->
+    <div class="container mt-4 mb-4">
+        @Html.Partial("_MenuBlocks")
+    </div>
+
+
+    <!-- Exibindo a lista de produtos -->
+    <div class="product-lines-section">
+        <div class="container">
+            <h2 class="text-center mb-5">Linhas Produtos</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="product-card">
+                        <div class="product-header">
+                            <i class="fas fa-spine"></i>
+                            <h3>Coluna</h3>
+                        </div>
+                        <img src="~/images/coluna.jpg" alt="Coluna" class="img-fluid">
+                        <p>Sistemas e dispositivos para coluna e região torácica</p>
+                        <a href="#" class="btn btn-circle"><i class="fas fa-plus"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="product-card">
+                        <div class="product-header">
+                            <i class="fas fa-brain"></i>
+                            <h3>Crânio</h3>
+                        </div>
+                        <img src="~/images/cranio.jpg" alt="Crânio" class="img-fluid">
+                        <p>Sistemas e dispositivos para Crânio</p>
+                        <a href="#" class="btn btn-circle"><i class="fas fa-plus"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="product-card">
+                        <div class="product-header">
+                            <i class="fas fa-microscope"></i>
+                            <h3>Equipamento</h3>
+                        </div>
+                        <img src="~/images/equipamento.jpg" alt="Equipamento" class="img-fluid">
+                        <p>Equipamentos especializados e suporte cirúrgico</p>
+                        <a href="#" class="btn btn-circle"><i class="fas fa-plus"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="product-card">
+                        <div class="product-header">
+                            <i class="fas fa-tools"></i>
+                            <h3>Instrumental</h3>
+                        </div>
+                        <img src="~/images/instrumental.jpg" alt="Instrumental" class="img-fluid">
+                        <p>Instrumentais para suporte médico e cirúrgico</p>
+                        <a href="#" class="btn btn-circle"><i class="fas fa-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="partnerships-section">
+        <div class="container">
+            <h2 class="text-center mb-4">PARCERIAS</h2>
+            <p class="text-center">
+                Para permitir que o maior número possível de pacientes tenham acesso a tratamentos modernos, a GMedica atua de forma próxima e dinâmica na área da saúde. A empresa é reconhecida pela postura profissional que adota com seus clientes e fornecedores, baseada no compromisso com a qualidade dos produtos comercializados, na responsabilidade e na ética em todas as suas ações.
+            </p>
+            <!-- Aqui você pode adicionar os logos dos parceiros, se necessário -->
+        </div>
+    </div>
 
     <div class="container">
         <main role="main" class="pb-3">
@@ -61,20 +158,73 @@
         </main>
     </div>
 
-    <a href="https://wa.me/seunumerodowhatsapp" class="whatsapp-button" target="_blank">
-        <img src="~/images/whatsapp-icon.png" alt="WhatsApp">
-    </a>
+    @*  --------- ENTRE EM CONTATO & FOOTER ------------  *@
 
-    <footer class="border-top footer text-muted">
+    <div class="produtos-section">
+        <h2>Fique por dentro de Nossos produtos</h2>
+        <form class="produtos-form">
+            <input type="text" placeholder="Nome" required />
+            <input type="email" placeholder="Insira o seu email aqui*" required />
+            <select required>
+                <option value="BR">BR+</option>
+            </select>
+            <input type="tel" placeholder="Telefone" required />
+            <input type="text" placeholder="Empresa" required />
+            <div class="opcoes">
+                <div class="opcao">
+                    <input type="radio" id="hospital" name="opcao" value="hospital" required>
+                    <label for="hospital">Hospital</label>
+                </div>
+                <div class="opcao">
+                    <input type="radio" id="medico" name="opcao" value="medico" required>
+                    <label for="medico">Médico</label>
+                </div>
+                <div class="opcao">
+                    <input type="radio" id="convenios" name="opcao" value="convenios" required>
+                    <label for="convenios">Convênios</label>
+                </div>
+                <div class="opcao">
+                    <input type="radio" id="distribuidor" name="opcao" value="distribuidor" required>
+                    <label for="distribuidor">Distribuidor</label>
+                </div>
+            </div>
+            <textarea placeholder="Mensagem" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <footer class="border-top footer text-muted" style="background-color: #265C8F;">
         <div class="container">
-            &copy; 2024 - GMedica - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Sobre Nós</h5>
+                    <p>
+                        A GMedica é uma empresa dedicada à comercialização de instrumental cirúrgico de alta qualidade. Nossa missão é fornecer soluções inovadoras que atendam às necessidades dos profissionais de saúde.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Links Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Produtos">Produtos</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Calendario">Calendário</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Entre em Contato</h5>
+                    <p>
+                        <strong>Email:</strong> contato@gmedica.com<br />
+                        <strong>Telefone:</strong> +55 (11) 1234-5678
+                    </p>
+                </div>
+            </div>
+            <p class="text-center">&copy; 2024 GMedica. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-
-    @await RenderSectionAsync("Scripts", required: false)
+    <script src="~/js/site.js"></script>
 </body>
 </html>

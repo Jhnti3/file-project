@@ -3,25 +3,19 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Estilos do cabeçalho 
-.navbar {
-    background-color: #1a2a3a !important;
-}*/
-
-/* Atualize a cor da navbar */
+/* Estilos do cabeçalho // Cor da barra do nav menu */
 .navbar {
     background-color: #265C8F !important;
 }
-
 
 .navbar-brand {
     font-weight: bold;
 }
 
     /* Ajuste o tamanho da logo */
-.navbar-brand img {
-    height: 40px; /* Defina a altura desejada */
-    width: auto; /* Mantenha a proporção da imagem */
+    .navbar-brand img {
+        height: 40px;
+        width: auto; /* Mantém a proporção da imagem */
     }
 
 /* Estilos do menu */
@@ -31,11 +25,56 @@ body {
     width: 100%;
 }
 
-/* Ajuste o tamanho da logo */
-.logo {
-    height: 40px; /* Defina a altura desejada */
-    width: auto; /* Mantenha a proporção da imagem */
+/* Estilos dos itens do menu de navegação */
+.nav-item a {
+    font-size: 18px;
+    color: #e1e1e1;
+    font-family: inherit;
+    font-weight: normal;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: color;
+    text-decoration: none; /* Remove underline */
+    padding: 10px 15px; /* Ajusta o espaçamento */
 }
+
+    /* Efeito hover */
+    .nav-item a:hover,
+    .nav-item a:focus {
+        color: #fff;
+    }
+
+    /* Linha animada abaixo do texto */
+    .nav-item a:after {
+        content: "";
+        pointer-events: none;
+        bottom: 5px;     /* distancia entre o txt e o hover */
+        left: 50%;
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        background-color: #fff;
+        transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition-duration: 400ms;
+        transition-property: width, left;
+    }
+
+    .nav-item a:hover:after,
+    .nav-item a:focus:after {
+        width: 100%;
+        left: 0%;
+    }
+
+/* Estilos do seletor de idioma */
+.language-selector a {
+    margin-left: 10px;
+}
+
 
 
 /* Estilos da seção hero */
@@ -62,17 +101,9 @@ body {
     cursor: pointer;
 }
 
-.hero-dots .dot.active {
-    background-color: #717171;
-}
-
-.hero-section {
-    background-size: cover;
-    background-position: center;
-    height: 500px; /* ajuste conforme necessário */
-}
-
-
+    .hero-dots .dot.active {
+        background-color: #717171;
+    }
 
 .hero-content {
     z-index: 2;
@@ -103,19 +134,6 @@ body {
 .hero-dots {
     margin-top: 2rem;
 }
-
-.dot {
-    height: 10px;
-    width: 10px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    margin: 0 5px;
-}
-
-    .dot.active {
-        background-color: #fff;
-    }
 
 /* Estilos do seletor de idioma */
 .language-selector {
@@ -197,7 +215,13 @@ body {
     border-radius: 10px;
     overflow: hidden;
     margin-bottom: 30px;
+    position: relative; /* Para o botão circular */
+    transition: transform 0.2s; /* Efeito de hover */
 }
+
+    .product-card:hover {
+        transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+    }
 
 .product-header {
     background-color: #00a0e3;
@@ -239,7 +263,12 @@ body {
     position: absolute;
     bottom: 15px;
     right: 15px;
+    transition: background-color 0.3s; /* Transição ao passar o mouse */
 }
+
+    .btn-circle:hover {
+        background-color: #0077a1; /* Cor ao passar o mouse */
+    }
 
 /* Estilos da seção Parcerias */
 .partnerships-section {
@@ -282,4 +311,97 @@ body {
     .banner-text .btn {
         margin-top: 1rem;
     }
+
+/*------------ENTRE EM CONTATO e FOOTER---------------*/
+
+.produtos-section {
+    background-color: #006699;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.produtos-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+    .produtos-form input,
+    .produtos-form select {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+    }
+
+        .produtos-form input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+.opcoes {
+    display: flex;
+    flex-direction: column;
+}
+
+.opcao {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+    .opcao input[type="radio"] {
+        margin-right: 10px;
+    }
+
+.assine-btn {
+    background-color: #00ccff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilos do Footer */
+.footer {
+    background-color: #003366;
+    color: white !important;
+    padding: 20px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 60px;
+    color: white !important; /* Força a cor branca */
+}
+
+.footer-links a {
+    color: white !important; /* Garante que os links também fiquem brancos */
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.footer-logos img {
+    height: 40px;
+    margin-left: 10px;
+    /* Nenhuma alteração necessária para as imagens */
+}
+
+.company-info {
+    font-size: 0.8em;
+    text-align: center;
+    margin-top: 20px;
+    color: white !important; /* Garante que o texto informativo fique branco */
+}
+
+.p {           /* cor dos textos no footer */
+    color: #6c757d;
+    max-width: 800px;
+    margin: 0 auto;
+}
 
