@@ -1,19 +1,21 @@
 ﻿<!DOCTYPE html>
-<html lang="pt-br">
+<html lang="@ViewData["CurrentCulture"]">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - GMedica</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <!-- Links para FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3" style="background-color: #265C8F;">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">GMedica</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/Logo.png" alt="GMedica Logo" class="logo">
+                </a>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -37,10 +39,18 @@
                         </li>
                     </ul>
                 </div>
+
                 <div class="language-selector">
-                    <a href="#" class="btn btn-outline-light btn-sm">PT</a>
-                    <a href="#" class="btn btn-outline-light btn-sm">EN</a>
+                    <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "pt-BR", returnUrl = Context.Request.Path })" class="btn btn-outline-light btn-sm">
+                        <img src="/images/BRA.png" alt="" style="width: 20px; margin-right: 5px;">
+                        PT
+                    </a>
+                    <a href="@Url.Action("ChangeLanguage", "Home", new { culture = "en-US", returnUrl = Context.Request.Path })" class="btn btn-outline-light btn-sm">
+                        <img src="/images/USA.png" alt="" style="width: 20px; margin-right: 5px;">
+                        EN
+                    </a>
                 </div>
+
             </div>
         </nav>
     </header>
@@ -51,22 +61,20 @@
         </main>
     </div>
 
-    <!-- Botão do WhatsApp -->
     <a href="https://wa.me/seunumerodowhatsapp" class="whatsapp-button" target="_blank">
         <img src="~/images/whatsapp-icon.png" alt="WhatsApp">
     </a>
 
-    <!-- Rodapé -->
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2024 - GMedica - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
