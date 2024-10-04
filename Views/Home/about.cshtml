@@ -2,7 +2,62 @@
     ViewData["Title"] = "Saiba Mais - GMedica";
 }
 
-<div class="container mt-5">
+@* <div class="container mt-5">
     <h1>Saiba Mais sobre a GMedica</h1>
     <!-- Adicione mais conteúdo sobre a empresa aqui -->
+</div> *@
+<p>@ViewBag.aboutText</p>
+
+@{
+    var loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.";
+}
+
+<div class="about-us-container">
+    <div class="about-us-content">
+        <h2>SOBRE NÓS</h2>
+        <p>@loremIpsum</p>
+        <button class="saiba-mais-btn">Saiba Mais</button>
+    </div>
 </div>
+
+<style>
+    .about-us-container {
+        background-color: #1a3b5d;
+        color: white;
+        padding: 40px;
+        margin: 20px 0;
+        border-radius: 10px;
+    }
+
+    .about-us-content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+        .about-us-content h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .about-us-content p {
+            font-size: 1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+    .saiba-mais-btn {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+        padding: 10px 20px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+        .saiba-mais-btn:hover {
+            background-color: white;
+            color: #1a3b5d;
+        }
+</style>

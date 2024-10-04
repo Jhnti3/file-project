@@ -1,0 +1,56 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@{
+    var menuItems = new[]
+    {
+        new { Icon = "fas fa-tools", Text = "PRODUTOS" },
+        new { Icon = "fas fa-clipboard-check", Text = "COMPLIANCE" },
+        new { Icon = "fas fa-trophy", Text = "PRÊMIOS" },
+        new { Icon = "fas fa-calendar-alt", Text = "CALENDÁRIO" },
+        new { Icon = "fas fa-graduation-cap", Text = "EDUCAÇÃO" }
+    };
+}
+
+<div class="d-flex justify-content-center">
+    @foreach (var item in menuItems)
+    {
+        <div class="menu-block text-center mx-2">
+            <i class="@item.Icon"></i>
+            <p>@item.Text</p>
+        </div>
+    }
+</div>
+
+<style>
+    .menu-block {
+        width: 120px;
+        height: 120px;
+        background-color: #00a0e3;
+        color: white;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .menu-block:hover {
+            background-color: #0082b8;
+        }
+
+        .menu-block i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .menu-block p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+</style>

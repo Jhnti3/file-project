@@ -54,14 +54,24 @@ namespace GMedicaWebsite
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+
+            // Desabilitar cache de arquivos estáticos
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                OnPrepareResponse = context =>
+                {
+                    context.Context.Response.Headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
+                    context.Context.Response.Headers["Pragma"] = "no-cache";
+                    context.Context.Response.Headers["Expires"] = "-1";
+                }
+            });
 
             app.UseRouting();
 
             app.UseAuthentication();
             app.UseAuthorization();
 
-            // Configure localization
+            // Configuração de localização
             var supportedCultures = new[] { "pt-BR", "en-US" };
             var localizationOptions = new RequestLocalizationOptions()
                 .SetDefaultCulture(supportedCultures[0])

@@ -1,0 +1,118 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<ProductViewModel>
+
+<!-- Use o Model ao invés da variável local products -->
+
+@{
+    var products = new[]
+    {
+        new { Icon = "fas fa-spine", Title = "Coluna", Image = "/images/coluna.jpg", Description = "Sistemas e dispositivos para coluna e região torácica" },
+        new { Icon = "fas fa-skull", Title = "Crânio", Image = "/images/cranio.jpg", Description = "Sistemas e dispositivos para Crânio" },
+        new { Icon = "fas fa-microscope", Title = "Equipamento", Image = "/images/equipamento.jpg", Description = "Equipamentos especilizados e suporte cirúrgico" },
+        new { Icon = "fas fa-tools", Title = "Instrumental", Image = "/images/instrumental.jpg", Description = "Instrumentais para suporte médico e cirúrgico" }
+    };
+}
+
+<div class="product-lines-container">
+    <h2 class="product-lines-title">Linhas Produtos</h2>
+    <div class="product-cards-grid">
+        @foreach (var product in products)
+        {
+            <div class="product-card">
+                <div class="product-card-header">
+                    <i class="@product.Icon"></i>
+                    <span>@product.Title</span>
+                </div>
+                <img src="@product.Image" alt="@product.Title" class="product-image">
+                <div class="product-description">
+                    @product.Description
+                </div>
+                <button class="more-info-btn">+</button>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .product-lines-container {
+        background-color: #1a3b5d;
+        color: white;
+        padding: 40px 20px;
+    }
+
+    .product-lines-title {
+        text-align: center;
+        font-size: 2.5em;
+        margin-bottom: 40px;
+    }
+
+    .product-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .product-card {
+        background-color: #00a0e3;
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .product-card-header {
+        background-color: rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+        .product-card-header i {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+    .product-image {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+
+    .product-description {
+        padding: 15px;
+        flex-grow: 1;
+    }
+
+    .more-info-btn {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background-color: white;
+        color: #00a0e3;
+        border: none;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+</style>
+
+<script>
+    document.querySelectorAll('.more-info-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+            // Aqui você pode adicionar a lógica para mostrar mais informações
+            alert('Mais informações sobre ' + this.closest('.product-card').querySelector('.product-card-header span').textContent);
+        });
+    });
+</script>

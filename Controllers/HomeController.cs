@@ -8,12 +8,23 @@ public class HomeController : Controller
 {
     public IActionResult Index()
     {
-        var model = new RepresentativeModel();
-        // Obtém a cultura atual e a adiciona ao ViewData
+        // Crie uma instância do HomeViewModel
+        var model = new HomeViewModel
+        {
+            Representative = new RepresentativeModel(),
+            Products = new List<ProductViewModel>
+        {
+            new ProductViewModel { Icon = "fas fa-spine", Title = "Coluna", Image = "/images/coluna.jpg", Description = "Sistemas e dispositivos para coluna e região torácica" },
+            // ... adicione os outros produtos aqui
+        }
+        };
+
         var currentCulture = HttpContext.Features.Get<IRequestCultureFeature>()?.RequestCulture.Culture.Name;
-        ViewData["CurrentCulture"] = currentCulture; // Adiciona a cultura atual ao ViewData
-        return View(model);
+        ViewData["CurrentCulture"] = currentCulture;
+
+        return View(model); // Retorne o modelo do tipo HomeViewModel para a View
     }
+
 
     public IActionResult Produtos()
     {
@@ -32,10 +43,12 @@ public class HomeController : Controller
 
     public IActionResult SaibaMais()
     {
+        ViewBag.AboutUsText = "Seu texto sobre a empresa aqui...";
         return View();
     }
 
-    // Ações para as páginas de produtos específicos
+    //// Ações para as páginas de produtos específicos
+
     public IActionResult ProdutoColuna()
     {
         return View();
