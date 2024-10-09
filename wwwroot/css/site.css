@@ -75,7 +75,7 @@ body {
     margin-left: 10px;
 }
 
-
+/* ------------------------------------------------------------- Estilos da seção hero */
 
 /* Estilos da seção hero */
 .hero-section {
@@ -87,28 +87,57 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: white;
     position: relative;
+    transition: background-image 0.6s ease; /* Transição suave para a troca de imagem */
 }
 
-.hero-dots .dot {
-    height: 15px;
-    width: 15px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    margin: 0 5px;
-    cursor: pointer;
+/* Dots agora serão posicionados verticalmente no lado direito da tela */
+.hero-dots {
+    position: absolute;
+    top: 50%; /* Posiciona no meio verticalmente */
+    right: 20px; /* Alinha os dots ao lado direito da tela. Use 'left' se quiser no lado esquerdo */
+    transform: translateY(-50%); /* Centraliza verticalmente */
+    display: flex;
+    flex-direction: column; /* Coloca os dots em coluna (vertical) */
+    z-index: 2; /* Garante que os dots fiquem acima do background */
+    text-shadow: none !important;
 }
 
-    .hero-dots .dot.active {
-        background-color: #717171;
+    .hero-dots .dot {
+        height: 10px;
+        width: 10px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: block;
+        margin: 10px 0; /* Espaçamento vertical entre os dots */
+        cursor: pointer;
+        transition: background-color 0.6s ease;
+        text-shadow: none !important;
     }
 
-.hero-content {
-    z-index: 2;
+        .hero-dots .dot.active {
+            background-color: #717171;
+        }
+
+/* Fade nos textos */
+.hero-section h1,
+.hero-section p {
+    color: white !important; /* Garante que o texto fique branco */
+    text-shadow: none !important; /* Remove qualquer sombra no texto */
+    animation: fade 1.5s; /* Animação para esmaecer os textos */
 }
 
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Transição suave entre imagens e animação dos dots */
 .hero-section::before {
     content: '';
     position: absolute;
@@ -118,22 +147,145 @@ body {
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
+    animation: fade 1.5s; /* Aplica o fade nas mudanças de imagens */
+    text-shadow: none !important;
 }
 
-.hero-section h1 {
-    font-size: 4rem;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+/* Responsividade: Ajuste para telas menores */
+@media only screen and (max-width: 768px) {
+    .hero-section {
+        height: 400px;
+    }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+        }
+
+    /* Ajuste os dots para telas menores */
+    .hero-dots {
+        right: 10px; /* Alinha mais próximo da borda */
+    }
+
+        .hero-dots .dot {
+            height: 10px;
+            width: 10px;
+        }
 }
 
-.hero-section p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
+/* Responsividade: Ajuste para telas muito pequenas */
+@media only screen and (max-width: 300px) {
+    .hero-section h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    .hero-dots .dot {
+        height: 8px;
+        width: 8px;
+        margin: 8px 0; /* Reduz o espaçamento entre os dots */
+    }
 }
 
-.hero-dots {
-    margin-top: 2rem;
+
+/* Estilos da seção hero */
+/*.hero-section {
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    transition: background-image 0.6s ease;*/ /* Transição suave para a troca de imagem */
+/*}*/
+
+    /* Garantir que o texto fique branco e sem sombra */
+    /*.hero-section h1,
+    .hero-section p {
+        color: white !important;*/ /* Força o texto a ser branco */
+        /*text-shadow: none !important;*/ /* Remove qualquer sombra no texto */
+        /*animation: fade 1.5s;*/ /* Animação para esmaecer os textos */
+    /*}
+
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+
+    to {
+        opacity: 1;
+    }
+}*/
+
+/* Estilos dos dots */
+/*.hero-dots .dot {
+    height: 15px;
+    width: 15px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.6s ease;
 }
+
+    .hero-dots .dot.active {
+        background-color: #717171;
+    }*/
+
+/* Transição suave entre imagens e animação dos dots */
+/*.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    animation: fade 1.5s;*/ /* Aplica o fade nas mudanças de imagens */
+/*}*/
+
+/* Responsividade: Ajuste para telas menores */
+/*@media only screen and (max-width: 768px) {
+    .hero-section {
+        height: 400px;
+    }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+        }
+}*/
+
+/* Responsividade: Ajuste para telas muito pequenas */
+/*@media only screen and (max-width: 300px) {
+    .hero-section h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    .hero-dots .dot {
+        height: 10px;
+        width: 10px;
+    }
+}*/
+
 
 /* Estilos do seletor de idioma */
 .language-selector {
@@ -215,12 +367,32 @@ body {
     border-radius: 10px;
     overflow: hidden;
     margin-bottom: 30px;
-    position: relative; /* Para o botão circular */
-    transition: transform 0.2s; /* Efeito de hover */
+    position: relative;
+    transition: transform 0.2s;
+    min-height: 300px; /* Define uma altura mínima para os cards */
+    display: flex;
+    flex-direction: column; /* Garante que o conteúdo se ajuste verticalmente */
+    justify-content: space-between; /* Mantém os elementos espaçados */
 }
 
+    /* Para as imagens */
+    .product-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        flex-shrink: 0; /* Garante que a imagem não deforme */
+    }
+
+    /* Conteúdo do card ajustado */
+    .product-card p {
+        padding: 15px;
+        font-size: 14px;
+        flex-grow: 1; /* Expande para ocupar o espaço disponível */
+    }
+
+
     .product-card:hover {
-        transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+        transform: scale(1.05);  Efeito de aumento ao passar o mouse 
     }
 
 .product-header {
@@ -270,6 +442,8 @@ body {
         background-color: #0077a1; /* Cor ao passar o mouse */
     }
 
+                                                                        /* Estilos da seção Parcerias */
+
 /* Estilos da seção Parcerias */
 .partnerships-section {
     background-color: #f8f9fa;
@@ -284,7 +458,36 @@ body {
         color: #6c757d;
         max-width: 800px;
         margin: 0 auto;
+        text-align: center;
     }
+
+/* Contêiner de parceiros */
+.partnership-logos {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    flex-wrap: wrap; /* Permite que as logos se quebrem em várias linhas */
+    gap: 30px; /* Espaçamento entre os logos */
+    margin-top: 40px;
+}
+
+    /* Garantir que as imagens dos parceiros tenham o mesmo tamanho */
+    .partnership-logos img {
+        width: 150px; /* Largura padrão */
+        height: 100px; /* Altura padrão */
+        object-fit: contain; /* Mantém a proporção original da logo, sem cortar */
+        padding: 10px;
+        background-color: transparent;
+        border-radius: 10px;
+        transition: transform 0.2s ease-in-out;
+    }
+
+        /* Efeito de hover suave */
+        .partnerships-section img:hover {
+            transform: scale(1.05);
+        }
+
+
 
 /* Estilos da imagem de fundo */
 .banner-image {
@@ -312,7 +515,7 @@ body {
         margin-top: 1rem;
     }
 
-/*------------ENTRE EM CONTATO e FOOTER---------------*/
+                                                                    /*------------ENTRE EM CONTATO e FOOTER---------------*/
 
 .produtos-section {
     background-color: #006699;
