@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="~/css/Site.css?v=@DateTime.Now.Ticks" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
+
     <!-- CSS para rolagem suave -->
     <style>
         html {
@@ -92,26 +93,29 @@
     <!-- Exibindo a lista de produtos -->
     <div class="product-lines-section">
         <div class="container">
-            <h2 class="text-center mb-5">Linhas Produtos</h2>
+            <h2 class="text-center mb-5">Linha Produtos</h2>
             <div class="row">
+               
                 <div class="col-md-3">
                     <div class="product-card">
                         <div class="product-header">
-                            <i class="fas fa-spine"></i>
+                            <i class="fas fa-user"></i> <!-- Alterado o ícone para "fa-user" -->
                             <h3>Coluna</h3>
                         </div>
-                        <img src="~/images/coluna.jpg" alt="Coluna" class="img-fluid">
+                        <img src="~/images/coluna.png" alt="Coluna" class="img-fluid">
                         <p>Sistemas e dispositivos para coluna e região torácica</p>
                         <a href="#" class="btn btn-circle"><i class="fas fa-plus"></i></a>
                     </div>
                 </div>
+
+
                 <div class="col-md-3">
                     <div class="product-card">
                         <div class="product-header">
                             <i class="fas fa-brain"></i>
                             <h3>Crânio</h3>
                         </div>
-                        <img src="~/images/cranio.jpg" alt="Crânio" class="img-fluid">
+                        <img src="~/images/cranio.png" alt="Crânio" class="img-fluid">
                         <p>Sistemas e dispositivos para Crânio</p>
                         <a href="#" class="btn btn-circle"><i class="fas fa-plus"></i></a>
                     </div>
@@ -122,7 +126,7 @@
                             <i class="fas fa-microscope"></i>
                             <h3>Equipamento</h3>
                         </div>
-                        <img src="~/images/equipamento.jpg" alt="Equipamento" class="img-fluid">
+                        <img src="~/images/equipamentos.png" alt="Equipamento" class="img-fluid">
                         <p>Equipamentos especializados e suporte cirúrgico</p>
                         <a href="#" class="btn btn-circle"><i class="fas fa-plus"></i></a>
                     </div>
@@ -133,7 +137,7 @@
                             <i class="fas fa-tools"></i>
                             <h3>Instrumental</h3>
                         </div>
-                        <img src="~/images/instrumental.jpg" alt="Instrumental" class="img-fluid">
+                        <img src="~/images/instrumentos.png" alt="Instrumental" class="img-fluid">
                         <p>Instrumentais para suporte médico e cirúrgico</p>
                         <a href="#" class="btn btn-circle"><i class="fas fa-plus"></i></a>
                     </div>
@@ -142,13 +146,37 @@
         </div>
     </div>
 
+                                                                                  <!-- SESSÃO DE PARCEIROS -->
+                                                                                  <!-- SESSÃO DE PARCEIROS -->
+
     <div class="partnerships-section">
         <div class="container">
             <h2 class="text-center mb-4">PARCERIAS</h2>
             <p class="text-center">
                 Para permitir que o maior número possível de pacientes tenham acesso a tratamentos modernos, a GMedica atua de forma próxima e dinâmica na área da saúde. A empresa é reconhecida pela postura profissional que adota com seus clientes e fornecedores, baseada no compromisso com a qualidade dos produtos comercializados, na responsabilidade e na ética em todas as suas ações.
             </p>
-            <!-- Aqui você pode adicionar os logos dos parceiros, se necessário -->
+            <div class="row justify-content-center mt-5">
+                <!-- Logo 1 -->
+                <div class="col-md-2 col-sm-4 col-6">
+                    <img src="~/images/albert.png" alt="Parceiro 1" class="img-fluid">
+                </div>
+                <!-- Logo 2 -->
+                <div class="col-md-2 col-sm-4 col-6">
+                    <img src="~/images/amazon.png" alt="Parceiro 2" class="img-fluid">
+                </div>
+                <!-- Logo 3 -->
+                <div class="col-md-2 col-sm-4 col-6">
+                    <img src="~/images/google.png" alt="Parceiro 3" class="img-fluid">
+                </div>
+                <!-- Logo 4 -->
+                <div class="col-md-2 col-sm-4 col-6">
+                    <img src="~/images/bradesco.png" alt="Parceiro 4" class="img-fluid">
+                </div>
+                <!-- Logo 5 -->
+                <div class="col-md-2 col-sm-4 col-6">
+                    <img src="~/images/unimed.png" alt="Parceiro 5" class="img-fluid">
+                </div>
+            </div>
         </div>
     </div>
 
@@ -158,10 +186,13 @@
         </main>
     </div>
 
-    @*  --------- ENTRE EM CONTATO & FOOTER ------------  *@
+
+  
+
+                                                                     @*  --------- ENTRE EM CONTATO & FOOTER ------------  *@
 
     <div class="produtos-section">
-        <h2>Fique por dentro de Nossos produtos</h2>
+        <h2>Tra</h2>
         <form class="produtos-form">
             <input type="text" placeholder="Nome" required />
             <input type="email" placeholder="Insira o seu email aqui*" required />
@@ -192,6 +223,8 @@
             <button type="submit">Enviar</button>
         </form>
     </div>
+
+                                                                            @* FOOTER  *@
 
     <footer class="border-top footer text-muted" style="background-color: #265C8F;">
         <div class="container">

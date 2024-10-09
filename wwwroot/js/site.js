@@ -1,5 +1,4 @@
-﻿
-// Conjunto de dados para alternar entre imagens e textos
+﻿// Conjunto de dados para alternar entre imagens e textos
 const heroContent = [
     {
         title: "GMEDICA",
@@ -28,39 +27,51 @@ const heroContent = [
     }
 ];
 
-// Função para alterar o conteúdo
-function changeHeroContent(index) {
-    const heroTitle = document.getElementById('hero-title');
-    const heroText = document.getElementById('hero-text');
-    const heroSection = document.querySelector('.hero-section');
-    const dots = document.querySelectorAll('.dot');
+const dots = document.querySelectorAll('.dot');
+const heroSection = document.querySelector('.hero-section');
+const heroTitle = document.querySelector('.hero-content h1');
+const heroText = document.querySelector('.hero-content p');
 
-    // Atualiza o título, texto e imagem de fundo
-    heroTitle.textContent = heroContent[index].title;
-    heroText.textContent = heroContent[index].text;
-    heroSection.style.backgroundImage = `url(${heroContent[index].imageUrl})`;
+let currentIndex = 0;
 
-    // Atualiza a bolinha ativa
+function updateHeroSection(index) {
+    const content = heroContent[index];
+
+    // Atualiza o título e o texto
+    heroTitle.textContent = content.title;
+    heroText.textContent = content.text;
+
+    // Atualiza a imagem de background
+    heroSection.style.backgroundImage = `url('${content.imageUrl}')`;
+
+    // Remove a classe 'active' de todos os dots
     dots.forEach(dot => dot.classList.remove('active'));
+
+    // Adiciona a classe 'active' ao dot atual
     dots[index].classList.add('active');
 }
 
-// Adiciona event listeners para as bolinhas
-document.querySelectorAll('.dot').forEach(dot => {
-    dot.addEventListener('click', function () {
-        const index = this.getAttribute('data-index');
-        changeHeroContent(index);
+// Evento para alternar quando clicado em um dot
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        currentIndex = index;
+        updateHeroSection(currentIndex);
     });
 });
 
 // Inicializa com o conteúdo da primeira posição
-changeHeroContent(0);
+updateHeroSection(currentIndex);
 
+// Função para alternar automaticamente a cada 5 segundos
+function autoSlide() {
+    setInterval(() => {
+        // Atualiza o índice
+        currentIndex = (currentIndex + 1) % heroContent.length;
 
+        // Atualiza a seção hero com o novo índice
+        updateHeroSection(currentIndex);
+    }, 5000); // 5000ms = 5 segundos
+}
 
-    document.querySelector('.saiba-mais-btn').addEventListener('click', function() {
-        // Aqui você pode adicionar a lógica para "Saiba Mais"
-       alert('Você clicou em Saiba Mais!');
-        // Ou redirecionar para uma página com mais informações:
-        // window.location.href = '/sobre-nos';
-    });
+// Inicia o slide automático
+autoSlide();
