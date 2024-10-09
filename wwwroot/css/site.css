@@ -515,24 +515,28 @@ body {
         margin-top: 1rem;
     }
 
-                                                                    /*------------ENTRE EM CONTATO e FOOTER---------------*/
+                                                                    /*------------ENTRE EM CONTATO---------------*/
 
 .produtos-section {
     background-color: #006699;
     color: white;
-    padding: 20px;
+    padding: 50px;
     border-radius: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 50px; /* Aumenta o espaçamento entre a seção e o footer */
 }
 
 .produtos-form {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    grid-template-columns: 1fr 1fr; /* Define duas colunas para organizar os campos */
+    gap: 20px;
 }
 
-    .produtos-form input,
-    .produtos-form select {
-        width: 100%;
+    .produtos-form input[type="text"],
+    .produtos-form input[type="email"],
+    .produtos-form input[type="tel"] {
+        width: 100%; /* Garante que todos os campos usem 100% da largura disponível da coluna */
         padding: 10px;
         border: none;
         border-radius: 5px;
@@ -540,33 +544,63 @@ body {
         color: white;
     }
 
-        .produtos-form input::placeholder {
+    .produtos-form textarea {
+        width: 100%; /* Também garante que a mensagem ocupe a largura total da coluna */
+        padding: 10px;
+        height: 100px; /* Aumenta a altura para o campo de mensagem */
+        border: none;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+        resize: none; /* Impede o redimensionamento do campo */
+    }
+
+        .produtos-form input::placeholder,
+        .produtos-form textarea::placeholder {
             color: rgba(255, 255, 255, 0.7);
         }
 
+.selecao-opcao {
+    grid-column: 1 / -1; /* Faz o parágrafo ocupar toda a linha */
+    margin-top: 20px; /* Espaçamento acima do parágrafo */
+}
+
 .opcoes {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Alinha os itens verticalmente */
+    grid-column: 1 / -1; /* Faz a seção de múltipla escolha ocupar toda a linha */
 }
 
 .opcao {
     display: flex;
     align-items: center;
-    margin-bottom: 5px;
+    margin-bottom: 10px; /* Ajuste o espaço entre as opções */
+    margin-left: 10px; /* Aumenta o espaço entre o texto e o círculo do radio */
 }
 
     .opcao input[type="radio"] {
-        margin-right: 10px;
+        margin-right: 10px; /* Aumenta o espaço entre o círculo de seleção e o texto */
     }
 
-.assine-btn {
+
+button {
+    grid-column: 1 / -1; /* Faz o botão ocupar toda a linha */
+    padding: 10px;
     background-color: #00ccff;
     color: white;
     border: none;
-    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    max-width: 150px; /* Ajusta a largura máxima do botão */
+    align-self: center; /* Centraliza o botão horizontalmente */
 }
+
+
+
+
+
+
+
 
 /* Estilos do Footer */
 .footer {
