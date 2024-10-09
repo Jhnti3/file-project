@@ -21,3 +21,12 @@
 - Layout Home finalizada (trabalhando em ajustes)
 - Estilização na navbar (implementação do hover no menu)
 - Resolvido problema de cache
+
+
+// Update 1.3  
+
+- Ajuste e automação nos dots do Hero Section
+- Implementação e ajuste no campo de produtos
+- ⁠Implementação e ajuste no campo de parcerias
+- ⁠Melhoria na responsividade da pagina
+- Melhoria em no CSS dos recursos
