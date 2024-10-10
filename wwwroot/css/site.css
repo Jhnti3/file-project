@@ -448,6 +448,7 @@ body {
 .partnerships-section {
     background-color: #f8f9fa;
     padding: 60px 0;
+    margin-bottom: 30px; /* ESPACAMENTO ENTRE AS PARCERIAS E CONTACT US */
 }
 
     .partnerships-section h2 {
@@ -518,93 +519,63 @@ body {
                                                                     /*------------ENTRE EM CONTATO---------------*/
 
 .contato-section {
-    background-color: #006699;
-    color: white;
-    padding: 50px;
-    border-radius: 10px;
+    background-color: #006699; /* cor do conteudo */
+    padding: 50px; /* espacamento dentro do conteudo e as bordas */
+    border-radius: 10px; /* borda do conteudo */
     margin-bottom: 50px;
-    max-width: 1200px;
-    margin: 0 auto;
-    color: white;
+    max-width: 600px; /* estica ou contrai para as bordas o conteudo */
+    margin: 0 auto; /* posiciona o conteudo no meio */
+    color: white; /* cor das letras dentro do conteudo */
     margin-bottom: 50px; /* Aumenta o espaçamento entre a seção e o footer */
 }
 
-.contato-form {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Duas colunas para os campos */
-    gap: 20px;
+    .contato-section h2 {
+        margin-bottom: 20px; /* Adiciona espaço entre o título e o campo "Nome" */
+    }
 
+.contato-form {
+    display: grid; /* cria um espacamento entre os campos de preencher */
+    gap: 20px; /* cria um espacamento entre os campos de preencher */
 }
 
     .contato-form input[type="text"],
     .contato-form input[type="email"],
     .contato-form input[type="tel"] {
         width: 100%; /* Garante que os campos de texto ocupem 100% da largura */
-        padding: 10px;
+        padding: 10px; /* grossura do tamanho dos campos de preencher */
         border: none;
-        border-radius: 5px;
-        background-color: rgba(255, 255, 255, 0.1);
-        color: white;
+        border-radius: 5px; /* desginer da borda dos campos */
+        color: black;
+        max-width: 500px; /* TAMANHO DO CAMPO DE PREENCHER */
     }
 
     .contato-form textarea {
         width: 100%; /* Campo de mensagem ocupa 100% da largura da coluna */
-        padding: 10px;
-        height: 100px; /* Altura maior para o campo de mensagem */
-        border: none;
-        border-radius: 5px;
-        background-color: rgba(255, 255, 255, 0.1);
-        color: white;
+        padding: 10px; /* POSICIONA O TEXTO DENTRO DO CAMPO "MENSAGEM" */
+        height: 100px; /* Altura DO CAMPO MENSAGEM */
+        border: none; /* REMOVE BORDA FEIA DO CAMPO */
+        border-radius: 5px; /* desginer da borda dos campos */
         resize: none; /* Impede o redimensionamento do campo */
-    }
-
-/* Estilo para o container das opções */
-.opcoes-container {
-    display: flex;
-    flex-direction: column; /* Mantém o parágrafo e as opções em coluna */
-    grid-column: 1; /* Alinha o container na coluna da direita ou ESQUERDA */
-}
-
-/* Estilo para os itens de múltipla escolha */
-.opcoes {
-    display: flex;
-    flex-direction: column; /* Itens de múltipla escolha em coluna */
-}
-
-.opcao {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px; /* Ajuste o espaço entre as opções */
-}
-
-    .opcao input[type="radio"] {
-        margin-right: 10px; /* Aumenta o espaço entre o círculo de seleção e o texto */
+        max-width: 500px;
     }
 
 /* Ajusta a largura do botão */
 button {
     grid-column: 1 / -1; /* Faz o botão ocupar toda a linha */
-    padding: 10px;
-    background-color: #00ccff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    max-width: 150px; /* Ajusta a largura máxima do botão */
+    padding: 10px;   /* altura do tamanho do botao */
+    background-color: #00ccff;    /* COR FUNDO BOTAO ENVIAR */
+    color: white;  /* COR FUNDO BOTAO ENVIAR */
+    border: none;  /* REMOVE BORDA FEIA DO CAMPO */
+    border-radius: 5px;  /* DESIGNER BORDA */
+    cursor: pointer;   /* TRANSFORMA MOUSE QNDO PASSA EM CIMA */
+    max-width: 120px; /* Ajusta a largura máxima do botão */
     align-self: center; /* Centraliza o botão horizontalmente */
 }
 
 
 
+                                                                                    /* CSS do Footer */
 
-
-
-
-
-
-
-
-/* Estilos do Footer */
 .footer {
     background-color: #003366;
     color: white !important;
