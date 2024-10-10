@@ -30,3 +30,9 @@
 - ⁠Implementação e ajuste no campo de parcerias
 - ⁠Melhoria na responsividade da pagina
 - Melhoria em no CSS dos recursos
+
+
+// Update 1.4
+
+- Finalizado contact us
+- Trabalhando em novas features da section
