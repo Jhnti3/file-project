@@ -80,6 +80,15 @@ autoSlide();
     function autoResize(textarea) {
         textarea.style.height = 'auto'; // Reseta a altura para calcular a nova
     textarea.style.height = textarea.scrollHeight + 'px'; // Define a nova altura
-    }
+}
+
+
+const telefoneInput = document.getElementById('telefone');
+
+telefoneInput.addEventListener('input', function (e) {
+    // Remove qualquer caractere que não seja número ou os seguintes caracteres especiais: +, -, (, ), e espaço
+    telefoneInput.value = telefoneInput.value.replace(/[^0-9+()\-\s]/g, '');
+});
+
 
 
