@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - GMedica</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    @* <link rel="stylesheet" href="~/css/site.css" /> *@
     <link rel="stylesheet" href="~/css/Site.css?v=@DateTime.Now.Ticks" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
@@ -89,6 +88,12 @@
         @Html.Partial("_MenuBlocks")
     </div>
 
+    @* --------------------------------- Whatsapp button -------------------------- *@
+
+    <a href="https://wa.me/SEU_NUMERO" class="whatsapp-button" target="_blank">
+        <img src="/images/whatsapp.png" alt="WhatsApp">
+    </a>
+
 
     <!-- Exibindo a lista de produtos -->
     <div class="product-lines-section">
@@ -147,8 +152,7 @@
     </div>
 
                                                                                   <!-- SESSÃO DE PARCEIROS -->
-                                                                                  <!-- SESSÃO DE PARCEIROS -->
-
+                                                                                  
     <div class="partnerships-section">
         <div class="container">
             <h2 class="text-center mb-4">PARCERIAS</h2>
@@ -227,39 +231,55 @@
     </div>
 
 
-                                                                                                              
-
-    @* FOOTER  *@
-
-    <footer class="border-top footer text-muted" style="background-color: #265C8F;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h5>Sobre Nós</h5>
-                    <p>
-                        A GMedica é uma empresa dedicada à comercialização de instrumental cirúrgico de alta qualidade. Nossa missão é fornecer soluções inovadoras que atendam às necessidades dos profissionais de saúde.
-                    </p>
+    <!-- Footer HTML -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2 class="footer-title">GMedica</h2>
+                <p class="footer-subtitle">
+                    A GMedica é uma empresa dedicada à comercialização de instrumental cirúrgico de alta qualidade.
+                    Nossa missão é fornecer soluções inovadoras que atendam às necessidades dos profissionais de saúde.
+                </p>
+                <div class="footer-license">
+                    <span class="license-icon">&#128274;</span>
+                    <span class="license-text">Contato</span>
                 </div>
-                <div class="col-md-4">
-                    <h5>Links Rápidos</h5>
-                    <ul class="list-unstyled">
-                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="Produtos">Produtos</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="Calendario">Calendário</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="Contato">Contato</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h5>Entre em Contato</h5>
-                    <p>
-                        <strong>Email:</strong> contato@gmedica.com<br />
-                        <strong>Telefone:</strong> +55 (11) 1234-5678
-                    </p>
+                <p class="license-description">
+                    contato@gmedica.com <br> 
+                    (21) 1234-5678
+                </p>
+                <div class="footer-social">
+                    <a href="#" class="social-icon">&#x1F4F7;</a>
+                    <a href="#" class="social-icon">&#x1F426;</a>
+                    <a href="#" class="social-icon">&#x1F4AC;</a>
                 </div>
             </div>
-            <p class="text-center">&copy; 2024 GMedica. Todos os direitos reservados.</p>
+            <div class="footer-links">
+                
+                <div class="footer-column">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Post Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Continue navegando</h3>
+                    <ul>
+                        <li><a href="#">Início</a></li>
+                        <li><a href="#">Produtos</a></li>
+                        <li><a href="#">Calendario</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 GMedica. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
