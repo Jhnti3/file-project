@@ -42,4 +42,4 @@
 - Construção Footer finalizado;
 - Bug botão whatsapp corrigido e implementado;
 - Bug button solto na index;
-- bug @Url.Action conflitando nos <p> da pagina e actions;
+- bug @Url.Action conflitando nos textos da pagina e actions;
