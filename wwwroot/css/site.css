@@ -139,7 +139,7 @@ body {
 
 /* Transição suave entre imagens e animação dos dots */
 .hero-section::before {
-    content: '';
+    /*content: '';      ADICIONA UMA SOMBRA EM CIMA DO BANNER E LETRAS  */
     position: absolute;
     top: 0;
     left: 0;
@@ -493,6 +493,11 @@ button {
     align-self: center; /* Centraliza o botão horizontalmente */
 }
 
+/* Adiciona pointer ao passar o mouse sobre os radio buttons */
+.contato-form input[type="radio"] {
+    cursor: pointer; /* Altera o cursor para pointer */
+}
+
 
 
                                                                                     /* CSS do Footer */
@@ -519,7 +524,7 @@ button {
 .footer-title {
     font-size: 1.5rem;
     margin: 0;
-    background: linear-gradient(90deg, #8a2be2, #ff69b4);
+    background: linear-gradient(90deg, #00A0E3, #ff69b4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
