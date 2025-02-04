@@ -116,6 +116,6 @@ public class HomeController : Controller
         var newUrl = currentUrlValue.Contains("/en") ? currentUrlValue.Replace("/en", $"/{culture}") : $"/{culture}{currentUrlValue}";
 
 
-        return LocalRedirect(newUrl); // Use LocalRedirect para prevenir redirecionamento aberto
+        return LocalRedirect(newUrl); // Use LocalRedirect para prevenir redirecionamento aberto teste dois
     }
 }
