@@ -1,0 +1,22 @@
+﻿@model file_project.Models.HomeViewModel
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = Localizer["Home Page"];
+}
+
+<!-- Exibindo dados do RepresentativeModel -->
+<h1>@Model.Representative.Nome</h1>
+
+@section Scripts {
+    <script>
+        console.log("Página carregada com sucesso!");
+    </script>
+}
+<div>
+    <h1>Bem-vindo à GMedica!</h1>
+    <p>Este é o conteúdo principal da página.</p>
+</div>
+
+
