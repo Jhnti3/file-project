@@ -1,5 +1,8 @@
 # GMedica Website
 
+![Home Page - GMEDICA](https://github.com/user-attachments/assets/9a6cbd9c-9f69-491f-a2f0-955a17df50ab)
+
+
 // Update v1.0 
 
 - Atualização no menu do topo;
